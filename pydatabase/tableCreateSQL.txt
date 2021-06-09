@@ -1,0 +1,22 @@
+CREATE TABLE public.populationcensus
+(
+    state text COLLATE pg_catalog."default" NOT NULL,
+    pop integer NOT NULL DEFAULT nextval('populationcensus_pop_seq'::regclass),
+    growth real,
+    poppast integer NOT NULL DEFAULT nextval('populationcensus_poppast_seq'::regclass),
+    popold integer NOT NULL DEFAULT nextval('populationcensus_popold_seq'::regclass),
+    growthold real,
+    percent real,
+    density real,
+    rank smallint,
+    CONSTRAINT populationcensus_pkey PRIMARY KEY (state)
+)
+
+
+CREATE TABLE public.usstates
+(
+    state text COLLATE pg_catalog."default",
+    abbrev text COLLATE pg_catalog."default",
+    code text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT usstates_pkey PRIMARY KEY (code)
+)
